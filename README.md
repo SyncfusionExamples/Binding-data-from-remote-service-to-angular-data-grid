@@ -41,7 +41,13 @@ Ensure the following tools are installed before running any sample:
 
 ## Running the Samples
 
-Each sample must be executed independently by starting its server and client projects separately.
+Clone the repository and navigate to the project directory:
+
+```bash
+git clone https://github.com/SyncfusionExamples/Binding-data-from-remote-service-to-angular-data-grid.git
+```
+
+In this repository, each sample must be executed independently by starting its server and client projects separately.
 
 ### General Execution Flow
 
