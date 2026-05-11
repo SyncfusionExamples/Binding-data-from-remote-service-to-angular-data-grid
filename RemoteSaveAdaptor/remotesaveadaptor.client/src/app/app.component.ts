@@ -1,14 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 
 import { DataManager, RemoteSaveAdaptor } from '@syncfusion/ej2-data';
-import { EditSettingsModel, ToolbarItems } from '@syncfusion/ej2-angular-grids';
-import { HttpClient } from '@angular/common/http';
+import { EditSettingsModel,GridModule, ToolbarItems, EditService, FilterService, SortService, PageService, ToolbarService } from '@syncfusion/ej2-angular-grids';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
 const serviceUrl = 'https://localhost:7010/api/orders';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
+  imports: [GridModule, HttpClientModule],
+  providers: [EditService, FilterService, SortService, PageService, ToolbarService],
   template: `
 <ejs-grid id='grid' [dataSource]='data' [editSettings]='editSettings' [toolbar]='toolbar' allowSorting=true allowPaging=true allowFiltering=true height=450>
                 <e-columns>
@@ -20,7 +23,6 @@ const serviceUrl = 'https://localhost:7010/api/orders';
                     <e-column field='Verified' displayAsCheckBox=true  width=150></e-column>
                 </e-columns>
                 </ejs-grid>`,
-  providers: []
 })
 export class AppComponent implements OnInit {
 

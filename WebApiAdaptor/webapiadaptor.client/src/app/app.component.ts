@@ -1,9 +1,12 @@
 import { Component, ViewChild } from '@angular/core';
-import { GridComponent, ToolbarItems, EditSettingsModel } from '@syncfusion/ej2-angular-grids';
+import { GridComponent, ToolbarItems, EditSettingsModel,EditService, ToolbarService, FilterService, SortService, PageService, GridModule } from '@syncfusion/ej2-angular-grids';
 import { DataManager, WebApiAdaptor } from '@syncfusion/ej2-data';
 
 @Component({
   selector: 'app-root',
+  standalone:true,
+  imports: [GridModule],
+  providers: [EditService, ToolbarService, FilterService, SortService, PageService],
   templateUrl: './app.component.html'
 })
 export class AppComponent {
@@ -15,7 +18,7 @@ export class AppComponent {
 
   ngOnInit(): void {
     this.data = new DataManager({
-      url: 'https://localhost:7112/api/Orders',
+      url: 'http://localhost:5030/api/Orders',
       adaptor: new WebApiAdaptor()
     });
 
