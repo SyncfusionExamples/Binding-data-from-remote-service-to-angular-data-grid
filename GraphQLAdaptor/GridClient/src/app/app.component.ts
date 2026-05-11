@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { EditSettingsModel, PageSettingsModel } from '@syncfusion/ej2-angular-grids';
+import { EditSettingsModel, PageSettingsModel , GridModule, PageService, GroupService, EditService, FilterService, ToolbarService, SortService, AggregateService} from '@syncfusion/ej2-angular-grids';
 import { DataManager, GraphQLAdaptor } from '@syncfusion/ej2-data';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
+   imports: [GridModule],
+   providers: [PageService, GroupService, EditService, FilterService, ToolbarService, SortService, AggregateService],
   template: `<h1>Syncfusion Grid - GraphQLAdaptor</h1>
   <ejs-grid [dataSource]='data' [allowPaging]="true"  [editSettings]="editSettings" [toolbar]="toolbar">
   <e-columns>
